@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;  // Corrected this line
 use App\Mail\RegisterMail;
 use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -37,16 +38,23 @@ class AuthController extends Controller
             'password' => 'required|string|min:4',
         ]);
     
-        // Create a new user
-        $user = User::create([
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'password' => Hash::make($validatedData['password']),
-            'remember_token' => Str::random(60), // Generate a unique token
-        ]);
+
+        $save = new User();
+        $save->name = trim($request->name);
+        $save->email = trim($request->email);
+        $save->password = Hash::make($request->password);
+        $save->remember_token = Str::random(40);
+
+
+        $save->save(); // Save initial user data
+
+
+
+
+    
     
         // Send a verification email
-        Mail::to($user->email)->send(new RegisterMail($user));
+        Mail::to($save->email)->send(new RegisterMail($save));
     
         // Redirect with success message
         return redirect()->route('login')->with('success', 'Account created successfully. Please verify your email.');
@@ -71,7 +79,8 @@ class AuthController extends Controller
             Auth::login($user);
     
             // Redirect to a dashboard or desired route
-            return redirect()->back()->with('success', 'Login successful!');
+            return redirect('panel/dashboard')->with('success', 'Login successful!');
+
         }
     
         // If authentication fails
@@ -84,23 +93,31 @@ class AuthController extends Controller
 
     public function verify($token)
     {
-        // Find the user by the remember token
+        Log::info('Verification attempt with token: ' . $token);
+    
         $user = User::where('remember_token', $token)->first();
     
-        // If user not found or token is invalid
-        if (!$user) {
-            return redirect()->route('login')->with('error', 'Invalid or expired verification link.');
+        if ($user) {
+            Log::info('User found: ' . $user->email);
+    
+            $user->email_verified_at = Carbon::now();
+            $user->remember_token = null;
+            $user->save();
+    
+            return redirect()->route('login')->with('success', 'Email Verified.');
         }
     
-        // Mark the user's email as verified
-        $user->email_verified_at = now();
-        $user->remember_token = null; // Reset the token after verification
-        $user->save();
-    
-        // Redirect to login or dashboard with a success message
-        return redirect()->route('login')->with('success', 'Your email has been successfully verified. You can now log in.');
+        Log::warning('Invalid verification token: ' . $token);
+        return abort(404);
     }
     
-    
-    
+
+    public function logout()
+    {
+        // Log out the currently authenticated user
+        Auth::logout();
+
+        // Redirect the user to the login page
+        return redirect()->route('login')->with('success', 'You have been logged out successfully.');
+    }
 }
