@@ -40,42 +40,22 @@
       
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#company-pages-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Company Pages</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>Pages</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="company-pages-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="company-overview.html">
-              <i class="bi bi-circle"></i><span>Company Overview</span>
+            <a href="{{url('panel/pages/allpages')}}">
+              <i class="bi bi-circle"></i><span>All pages</span>
             </a>
           </li>
           <li>
             <a href="team-management.html">
-              <i class="bi bi-circle"></i><span>Navbar</span>
+              <i class="bi bi-circle"></i><span>New Pages</span>
             </a>
           </li>
-          <li>
-            <a href="career-opportunities.html">
-              <i class="bi bi-circle"></i><span>About Us</span>
-            </a>
-          </li>
-          <li>
-            <a href="contact-settings.html">
-              <i class="bi bi-circle"></i><span>Slider</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="team-management.html">
-              <i class="bi bi-circle"></i><span>Service</span>
-            </a>
-          </li>
-          <li>
-            <li>
-                <a href="team-management.html">
-                  <i class="bi bi-circle"></i><span>contact</span>
-                </a>
-              </li>
-              <li>
+          
+         
+            
         </ul>
       </li><!-- End Company Pages Nav -->
 

@@ -265,33 +265,25 @@
 </div>
 
 
-<script>
-    // JavaScript for search functionality
-    document.getElementById("searchInput").addEventListener("input", function () {
-        const searchValue = this.value.toLowerCase();
-        const rows = document.querySelectorAll("#userTable tr");
 
-        rows.forEach((row) => {
-            const cells = Array.from(row.cells).map(cell => cell.textContent.toLowerCase());
-            row.style.display = cells.some(cell => cell.includes(searchValue)) ? "" : "none";
-        });
-    });
 
  
 
 
-<script>
-    // JavaScript for search functionality
-    document.getElementById("searchInput").addEventListener("input", function () {
-        const searchValue = this.value.toLowerCase();
-        const rows = document.querySelectorAll("#userTable tr");
+    <script>
+  
+        document.getElementById("searchInput").addEventListener("input", function () {
+            const searchValue = this.value.toLowerCase().trim(); // Get the input value, trim spaces, and convert to lowercase
+            const rows = document.querySelectorAll("#userTable tbody tr"); // Select all rows in the table body
 
-        rows.forEach((row) => {
-            const cells = Array.from(row.cells).map(cell => cell.textContent.toLowerCase());
-            row.style.display = cells.some(cell => cell.includes(searchValue)) ? "" : "none";
+            rows.forEach((row) => {
+                const cells = Array.from(row.querySelectorAll("td")); // Get all cells in the row
+                const rowText = cells.map(cell => cell.textContent.toLowerCase()).join(" "); // Combine cell text into one string
+                
+                // Show or hide row based on search value
+                row.style.display = rowText.includes(searchValue) ? "" : "none";
+            });
         });
-    });
+    </script>
 
- 
-</script>
 @endsection
