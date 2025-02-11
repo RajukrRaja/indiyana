@@ -25,7 +25,7 @@
       >
         <div class="navbar-nav font-weight-bold mx-auto py-0">
           <a href="index.html" class="nav-item nav-link active">Home</a>
-          <a href="{{url('about_page')}}" class="nav-item nav-link">About</a>
+          <a href="{{url('about_page_view')}}" class="nav-item nav-link">About</a>
           <a href="class.html" class="nav-item nav-link">Classes</a>
           <a href="team.html" class="nav-item nav-link">Teachers</a>
           <a href="gallery.html" class="nav-item nav-link">Gallery</a>

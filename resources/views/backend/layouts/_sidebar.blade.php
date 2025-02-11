@@ -44,15 +44,25 @@
         </a>
         <ul id="company-pages-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{{url('panel/pages/allpages')}}">
-              <i class="bi bi-circle"></i><span>All pages</span>
+            <a href="{{url('panel/pages/Navbar_page')}}">
+              <i class="bi bi-circle"></i><span>Navbar</span>
             </a>
           </li>
           <li>
-            <a href="team-management.html">
-              <i class="bi bi-circle"></i><span>New Pages</span>
+            <a href="{{url('panel/pages/About_page')}}">
+              <i class="bi bi-circle"></i><span>About page</span>
             </a>
           </li>
+
+          <a href="{{url('panel/pages/Contact_page')}}">
+            <i class="bi bi-circle"></i><span>Contact</span>
+          </a>
+        </li>
+
+        <a href="{{url('panel/pages/Service_page')}}">
+          <i class="bi bi-circle"></i><span>Service page</span>
+        </a>
+      </li>
           
          
             

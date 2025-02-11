@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardContoller;
@@ -45,14 +45,25 @@ Route::put('panel/users/edit_user_admin', [UserController::class, 'edit_user_adm
 Route::put('panel/users/edit_user_admin', [UserController::class, 'edit_user_admin'])->name('edit_user_admin');
 
 
-Route::get('panel/pages/allpages', [PageController::class, 'allpages'])->name('allpages');
-Route::get('edit_page_view/{id}', [PageController::class, 'edit_page_view'])->name('edit_page_view');
 
-Route::post('/panel/pages/edit_page/{id}', [PageController::class, 'edit_page'])->name('pages.edit_page');
 
-Route::get('about_page', [PageController::class, 'about_page'])->name('about_page');
+Route::get('panel/pages/Navbar_page', [PageController::class, 'Navbar_page'])->name('Navbar_page');
+Route::get('panel/pages/About_page', [AboutUsController::class, 'About_page'])->name('About_page');
+Route::get('edit_about/{id}', [AboutUsController::class, 'edit_about'])->name('edit_about');
+Route::put('update_about/{id}', [AboutUsController::class, 'update_about'])->name('update_about');
+
+Route::get('panel/pages/Contact_page', [PageController::class, 'Contact_page'])->name('Contact_page');
+Route::get('panel/pages/Service_page', [PageController::class, 'Service_page'])->name('Service_page');
+
+
 
 
 
 });
+
+Route::get('about_page_view', [AboutUsController::class, 'about_page_view'])->name('about_page_view');
+Route::get('Navbar_page', [PageController::class, 'Navbar_page'])->name('Navbar_page');
+Route::get('Contact_page', [PageController::class, 'Contact_page'])->name('Contact_page');
+Route::get('Service_page', [PageController::class, 'Service_page'])->name('Service_page');
+
 
