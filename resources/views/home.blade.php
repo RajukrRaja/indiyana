@@ -1,414 +1,638 @@
 
 @extends('layouts.app')
 
+
 @section('content')
     <!-- Header Start -->
-    <div class="container-fluid bg-primary px-0 px-md-5 mb-5">
-      <div class="row align-items-center px-3">
+<!-- Header Start -->
+<div class="container-fluid bg-primary px-0 px-md-5 mb-5"> 
+    <div class="row align-items-center px-3">
         <div class="col-lg-6 text-center text-lg-left">
-          <h4 class="text-white mb-4 mt-5 mt-lg-0">Kids Learning Center</h4>
-          <h1 class="display-3 font-weight-bold text-white">
-            New Approach to Kids Education
-          </h1>
-          <p class="text-white mb-4">
-            Sea ipsum kasd eirmod kasd magna, est sea et diam ipsum est amet sed
-            sit. Ipsum dolor no justo dolor et, lorem ut dolor erat dolore sed
-            ipsum at ipsum nonumy amet. Clita lorem dolore sed stet et est justo
-            dolore.
-          </p>
-          <a href="" class="btn btn-secondary mt-1 py-3 px-5">Learn More</a>
+            <h4 class="text-white mb-4 mt-5 mt-lg-0" data-aos="fade-right" data-aos-delay="200">
+                Indiana Infotech Pvt. Ltd.
+            </h4>
+            <h1 class="display-3 font-weight-bold text-white" data-aos="fade-left" data-aos-delay="400">
+                Transforming Ideas into Digital Solutions
+            </h1>
+            <p class="text-white mb-4" data-aos="fade-up" data-aos-delay="600">
+                We provide custom software, mobile apps, ERP solutions, and digital marketing 
+                services tailored for businesses. Our expert team delivers high-quality, scalable, 
+                and user-friendly applications that enhance productivity and customer engagement.
+            </p>
+            <a href="#" class="btn btn-secondary mt-1 py-3 px-5" data-aos="zoom-in" data-aos-delay="800">
+                Learn More
+            </a>
         </div>
         <div class="col-lg-6 text-center text-lg-right">
-          <img class="img-fluid mt-5" src="{{ asset('front/img/header.png') }}" alt="Header Image" />
-
+            <img class="img-fluid mt-5 animated-image" src="{{ asset('front/img/header.png') }}" 
+                alt="Software Company Banner" data-aos="fade-left" data-aos-delay="1000" />
         </div>
-      </div>
     </div>
+</div>
+<!-- Header End -->
+
+<!-- Include AOS Animation Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,  // Animation duration (1 second)
+        once: true,  // Runs only once when scrolling
+    });
+</script>
+
+<!-- Custom CSS for Extra Effects -->
+<style>
+    /* Button Hover Effect */
+    .btn-secondary {
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        transform: scale(1.1);
+        background-color: #ffcc00;
+        color: #000;
+    }
+
+    /* Image Floating Effect */
+    .animated-image {
+        animation: float 4s infinite ease-in-out;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+</style>
+
     <!-- Header End -->
 
-    <!-- Facilities Start -->
-    <div class="container-fluid pt-5">
-      <div class="container pb-3">
-        <div class="row">
-          <div class="col-lg-4 col-md-6 pb-1">
-            <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
-            >
-              <i
-                class="flaticon-050-fence h1 font-weight-normal text-primary mb-3"
-              ></i>
-              <div class="pl-4">
-                <h4>Play Ground</h4>
-                <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 pb-1">
-            <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
-            >
-              <i
-                class="flaticon-022-drum h1 font-weight-normal text-primary mb-3"
-              ></i>
-              <div class="pl-4">
-                <h4>Music and Dance</h4>
-                <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 pb-1">
-            <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
-            >
-              <i
-                class="flaticon-030-crayons h1 font-weight-normal text-primary mb-3"
-              ></i>
-              <div class="pl-4">
-                <h4>Arts and Crafts</h4>
-                <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 pb-1">
-            <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
-            >
-              <i
-                class="flaticon-017-toy-car h1 font-weight-normal text-primary mb-3"
-              ></i>
-              <div class="pl-4">
-                <h4>Safe Transportation</h4>
-                <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 pb-1">
-            <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
-            >
-              <i
-                class="flaticon-025-sandwich h1 font-weight-normal text-primary mb-3"
-              ></i>
-              <div class="pl-4">
-                <h4>Healthy food</h4>
-                <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 pb-1">
-            <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
-            >
-              <i
-                class="flaticon-047-backpack h1 font-weight-normal text-primary mb-3"
-              ></i>
-              <div class="pl-4">
-                <h4>Educational Tour</h4>
-                <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Facilities Start -->
+    
 
-    <!-- About Start -->
-    <div class="container-fluid py-5">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-5">
-            <img
-              class="img-fluid rounded mb-5 mb-lg-0"
-             src="{{ asset('front/img/about-1.jpg') }}"
-              alt=""
-            />
-          </div>
-          <div class="col-lg-7">
-            <p class="section-title pr-5">
-              <span class="pr-2">Learn About Us</span>
-            </p>
-            <h1 class="mb-4">Best School For Your Kids</h1>
-            <p>
-              Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo
-              dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.
-              Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
-              dolor
-            </p>
-            <div class="row pt-2 pb-4">
-              <div class="col-6 col-md-4">
-                <img class="img-fluid rounded" src="{{ asset('front/img/about-2.jpg') }}" alt="" />
-              </div>
-              <div class="col-6 col-md-8">
-                <ul class="list-inline m-0">
-                  <li class="py-2 border-top border-bottom">
-                    <i class="fa fa-check text-primary mr-3"></i>Labore eos amet
-                    dolor amet diam
-                  </li>
-                  <li class="py-2 border-bottom">
-                    <i class="fa fa-check text-primary mr-3"></i>Etsea et sit
-                    dolor amet ipsum
-                  </li>
-                  <li class="py-2 border-bottom">
-                    <i class="fa fa-check text-primary mr-3"></i>Diam dolor diam
-                    elitripsum vero.
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <a href="" class="btn btn-primary mt-2 py-2 px-4">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- About End -->
 
-    <!-- Class Start -->
-    <div class="container-fluid pt-5">
-      <div class="container">
-        <div class="text-center pb-2">
-          <p class="section-title px-5">
-            <span class="px-2">Popular Classes</span>
+
+ <!-- Facilities Start -->
+<div class="container-fluid pt-5">
+  <div class="container pb-3">
+    <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="200">
+      <h2 class="text-primary font-weight-bold">Our Work Environment & Facilities</h2>
+      <p class="text-muted">Providing a world-class workspace to empower innovation and collaboration.</p>
+    </div>
+    
+    <div class="row">
+      <!-- Facility Item 1 -->
+      <div class="col-lg-4 col-md-6 pb-4" data-aos="flip-left" data-aos-delay="200">
+        <div class="facility-box text-center p-4 shadow-sm rounded">
+          <div class="facility-icon" data-aos="zoom-in" data-aos-delay="400">
+            <i class="flaticon-050-fence text-primary"></i>
+          </div>
+          <h4 class="mt-3">Modern Workspace</h4>
+          <p class="text-muted">
+            Our office features ergonomic workstations and cutting-edge infrastructure to boost productivity.
           </p>
-          <h1 class="mb-4">Classes for Your Kids</h1>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 mb-5">
-            <div class="card border-0 bg-light shadow-sm pb-2">
-              <img class="card-img-top mb-2" src="img/class-1.jpg" alt="" />
-              <div class="card-body text-center">
-                <h4 class="card-title">Drawing Class</h4>
-                <p class="card-text">
-                  Justo ea diam stet diam ipsum no sit, ipsum vero et et diam
-                  ipsum duo et no et, ipsum ipsum erat duo amet clita duo
-                </p>
-              </div>
-              <div class="card-footer bg-transparent py-4 px-5">
-                <div class="row border-bottom">
-                  <div class="col-6 py-1 text-right border-right">
-                    <strong>Age of Kids</strong>
-                  </div>
-                  <div class="col-6 py-1">3 - 6 Years</div>
-                </div>
-                <div class="row border-bottom">
-                  <div class="col-6 py-1 text-right border-right">
-                    <strong>Total Seats</strong>
-                  </div>
-                  <div class="col-6 py-1">40 Seats</div>
-                </div>
-                <div class="row border-bottom">
-                  <div class="col-6 py-1 text-right border-right">
-                    <strong>Class Time</strong>
-                  </div>
-                  <div class="col-6 py-1">08:00 - 10:00</div>
-                </div>
-                <div class="row">
-                  <div class="col-6 py-1 text-right border-right">
-                    <strong>Tution Fee</strong>
-                  </div>
-                  <div class="col-6 py-1">$290 / Month</div>
-                </div>
-              </div>
-              <a href="" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-5">
-            <div class="card border-0 bg-light shadow-sm pb-2">
-              <img class="card-img-top mb-2" src="img/class-2.jpg" alt="" />
-              <div class="card-body text-center">
-                <h4 class="card-title">Language Learning</h4>
-                <p class="card-text">
-                  Justo ea diam stet diam ipsum no sit, ipsum vero et et diam
-                  ipsum duo et no et, ipsum ipsum erat duo amet clita duo
-                </p>
-              </div>
-              <div class="card-footer bg-transparent py-4 px-5">
-                <div class="row border-bottom">
-                  <div class="col-6 py-1 text-right border-right">
-                    <strong>Age of Kids</strong>
-                  </div>
-                  <div class="col-6 py-1">3 - 6 Years</div>
-                </div>
-                <div class="row border-bottom">
-                  <div class="col-6 py-1 text-right border-right">
-                    <strong>Total Seats</strong>
-                  </div>
-                  <div class="col-6 py-1">40 Seats</div>
-                </div>
-                <div class="row border-bottom">
-                  <div class="col-6 py-1 text-right border-right">
-                    <strong>Class Time</strong>
-                  </div>
-                  <div class="col-6 py-1">08:00 - 10:00</div>
-                </div>
-                <div class="row">
-                  <div class="col-6 py-1 text-right border-right">
-                    <strong>Tution Fee</strong>
-                  </div>
-                  <div class="col-6 py-1">$290 / Month</div>
-                </div>
-              </div>
-              <a href="" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-5">
-            <div class="card border-0 bg-light shadow-sm pb-2">
-              <img class="card-img-top mb-2" src="img/class-3.jpg" alt="" />
-              <div class="card-body text-center">
-                <h4 class="card-title">Basic Science</h4>
-                <p class="card-text">
-                  Justo ea diam stet diam ipsum no sit, ipsum vero et et diam
-                  ipsum duo et no et, ipsum ipsum erat duo amet clita duo
-                </p>
-              </div>
-              <div class="card-footer bg-transparent py-4 px-5">
-                <div class="row border-bottom">
-                  <div class="col-6 py-1 text-right border-right">
-                    <strong>Age of Kids</strong>
-                  </div>
-                  <div class="col-6 py-1">3 - 6 Years</div>
-                </div>
-                <div class="row border-bottom">
-                  <div class="col-6 py-1 text-right border-right">
-                    <strong>Total Seats</strong>
-                  </div>
-                  <div class="col-6 py-1">40 Seats</div>
-                </div>
-                <div class="row border-bottom">
-                  <div class="col-6 py-1 text-right border-right">
-                    <strong>Class Time</strong>
-                  </div>
-                  <div class="col-6 py-1">08:00 - 10:00</div>
-                </div>
-                <div class="row">
-                  <div class="col-6 py-1 text-right border-right">
-                    <strong>Tution Fee</strong>
-                  </div>
-                  <div class="col-6 py-1">$290 / Month</div>
-                </div>
-              </div>
-              <a href="" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
-    <!-- Class End -->
 
-    <!-- Registration Start -->
-    <div class="container-fluid py-5">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-7 mb-5 mb-lg-0">
-            <p class="section-title pr-5">
-              <span class="pr-2">Book A Seat</span>
-            </p>
-            <h1 class="mb-4">Book A Seat For Your Kid</h1>
-            <p>
-              Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo
-              dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.
-              Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
-              dolor
-            </p>
-            <ul class="list-inline m-0">
-              <li class="py-2">
-                <i class="fa fa-check text-success mr-3"></i>Labore eos amet
-                dolor amet diam
-              </li>
-              <li class="py-2">
-                <i class="fa fa-check text-success mr-3"></i>Etsea et sit dolor
-                amet ipsum
-              </li>
-              <li class="py-2">
-                <i class="fa fa-check text-success mr-3"></i>Diam dolor diam
-                elitripsum vero.
-              </li>
-            </ul>
-            <a href="" class="btn btn-primary mt-4 py-2 px-4">Book Now</a>
+      <!-- Facility Item 2 -->
+      <div class="col-lg-4 col-md-6 pb-4" data-aos="flip-right" data-aos-delay="400">
+        <div class="facility-box text-center p-4 shadow-sm rounded">
+          <div class="facility-icon" data-aos="zoom-in" data-aos-delay="600">
+            <i class="flaticon-022-drum text-primary"></i>
           </div>
-          <div class="col-lg-5">
-            <div class="card border-0">
-              <div class="card-header bg-secondary text-center p-4">
-                <h1 class="text-white m-0">Book A Seat</h1>
-              </div>
-              <div class="card-body rounded-bottom bg-primary p-5">
-                <form>
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control border-0 p-4"
-                      placeholder="Your Name"
-                      required="required"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <input
-                      type="email"
-                      class="form-control border-0 p-4"
-                      placeholder="Your Email"
-                      required="required"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <select
-                      class="custom-select border-0 px-4"
-                      style="height: 47px"
-                    >
-                      <option selected>Select A Class</option>
-                      <option value="1">Class 1</option>
-                      <option value="2">Class 1</option>
-                      <option value="3">Class 1</option>
-                    </select>
-                  </div>
-                  <div>
-                    <button
-                      class="btn btn-secondary btn-block border-0 py-3"
-                      type="submit"
-                    >
-                      Book Now
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
+          <h4 class="mt-3">Innovation Hub</h4>
+          <p class="text-muted">
+            A dedicated R&D lab where AI, Machine Learning, and Cloud Computing bring ideas to life.
+          </p>
+        </div>
+      </div>
+
+      <!-- Facility Item 3 -->
+      <div class="col-lg-4 col-md-6 pb-4" data-aos="flip-left" data-aos-delay="600">
+        <div class="facility-box text-center p-4 shadow-sm rounded">
+          <div class="facility-icon" data-aos="zoom-in" data-aos-delay="800">
+            <i class="flaticon-030-crayons text-primary"></i>
           </div>
+          <h4 class="mt-3">Training & Development</h4>
+          <p class="text-muted">
+            Continuous learning programs, workshops, and tech bootcamps keep our team updated.
+          </p>
+        </div>
+      </div>
+
+      <!-- Facility Item 4 -->
+      <div class="col-lg-4 col-md-6 pb-4" data-aos="flip-right" data-aos-delay="800">
+        <div class="facility-box text-center p-4 shadow-sm rounded">
+          <div class="facility-icon" data-aos="zoom-in" data-aos-delay="1000">
+            <i class="flaticon-017-toy-car text-primary"></i>
+          </div>
+          <h4 class="mt-3">Secure & Reliable IT</h4>
+          <p class="text-muted">
+            High-speed internet, cloud storage, and cybersecurity ensure a smooth workflow.
+          </p>
+        </div>
+      </div>
+
+      <!-- Facility Item 5 -->
+      <div class="col-lg-4 col-md-6 pb-4" data-aos="flip-left" data-aos-delay="1000">
+        <div class="facility-box text-center p-4 shadow-sm rounded">
+          <div class="facility-icon" data-aos="zoom-in" data-aos-delay="1200">
+            <i class="flaticon-025-sandwich text-primary"></i>
+          </div>
+          <h4 class="mt-3">Employee Wellness</h4>
+          <p class="text-muted">
+            Work-life balance with recreational areas, fitness programs, and mental health support.
+          </p>
+        </div>
+      </div>
+
+      <!-- Facility Item 6 -->
+      <div class="col-lg-4 col-md-6 pb-4" data-aos="flip-right" data-aos-delay="1200">
+        <div class="facility-box text-center p-4 shadow-sm rounded">
+          <div class="facility-icon" data-aos="zoom-in" data-aos-delay="1400">
+            <i class="flaticon-047-backpack text-primary"></i>
+          </div>
+          <h4 class="mt-3">Tech Meetups & Hackathons</h4>
+          <p class="text-muted">
+            Knowledge-sharing sessions, hackathons, and networking events to stay ahead in tech.
+          </p>
         </div>
       </div>
     </div>
-    <!-- Registration End -->
+  </div>
+</div>
+<!-- Facilities End -->
+
+<!-- Include AOS Animation Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,  // Animation duration (1 second)
+        once: true,  // Runs only once when scrolling
+    });
+</script>
+
+<!-- Custom CSS -->
+<style>
+  .facility-box {
+    background: #fff;
+    border-top: 4px solid #007bff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .facility-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .facility-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(0, 123, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto;
+    font-size: 30px;
+    transition: transform 0.3s ease;
+  }
+
+  .facility-box:hover .facility-icon {
+    transform: rotate(360deg);
+  }
+
+  .facility-box h4 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .facility-box p {
+    font-size: 14px;
+  }
+</style>
+
+
+<!-- Custom CSS -->
+<style>
+  .facility-box {
+    background: #fff;
+    border-top: 4px solid #007bff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .facility-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .facility-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(0, 123, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto;
+    font-size: 30px;
+  }
+
+  .facility-box h4 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .facility-box p {
+    font-size: 14px;
+  }
+</style>
+
+
+<!-- Core Services Start -->
+<div class="container-fluid pt-5 bg-light">
+  <div class="container">
+    <div class="text-center pb-4" data-aos="fade-up">
+      <p class="section-title px-5">
+        <span class="px-2">Our Core Services</span>
+      </p>
+      <h1 class="mb-4">What We Offer</h1>
+    </div>
+    <div class="row">
+      
+      <!-- Software Development -->
+      <div class="col-lg-4 mb-5" data-aos="fade-right">
+        <div class="card border-0 shadow-sm pb-2">
+          <div class="text-center pt-4">
+            <i class="fas fa-code fa-3x text-primary"></i>
+          </div>
+          <div class="card-body text-center">
+            <h4 class="card-title">Software Development</h4>
+            <p class="card-text">
+              We specialize in developing ERP, HRM, Accounting, Payroll, and customized software solutions tailored to your needs.
+            </p>
+          </div>
+          <div class="text-center">
+            <a href="#" class="btn btn-primary px-4 mb-4">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile App Development -->
+      <div class="col-lg-4 mb-5" data-aos="fade-up">
+        <div class="card border-0 shadow-sm pb-2">
+          <div class="text-center pt-4">
+            <i class="fas fa-mobile-alt fa-3x text-primary"></i>
+          </div>
+          <div class="card-body text-center">
+            <h4 class="card-title">Mobile App Development</h4>
+            <p class="card-text">
+              Build scalable, feature-rich mobile apps with our expert team skilled in Java, PHP, and .NET technologies.
+            </p>
+          </div>
+          <div class="text-center">
+            <a href="#" class="btn btn-primary px-4 mb-4">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- eCommerce Development -->
+      <div class="col-lg-4 mb-5" data-aos="fade-left">
+        <div class="card border-0 shadow-sm pb-2">
+          <div class="text-center pt-4">
+            <i class="fas fa-shopping-cart fa-3x text-primary"></i>
+          </div>
+          <div class="card-body text-center">
+            <h4 class="card-title">eCommerce Development</h4>
+            <p class="card-text">
+              Turn your local shop into a high-performing eCommerce website with our customized, user-friendly solutions.
+            </p>
+          </div>
+          <div class="text-center">
+            <a href="#" class="btn btn-primary px-4 mb-4">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Website Development -->
+      <div class="col-lg-4 mb-5" data-aos="zoom-in">
+        <div class="card border-0 shadow-sm pb-2">
+          <div class="text-center pt-4">
+            <i class="fas fa-globe fa-3x text-primary"></i>
+          </div>
+          <div class="card-body text-center">
+            <h4 class="card-title">Website Development</h4>
+            <p class="card-text">
+              We create responsive, SEO-friendly websites and web applications with easy-to-use admin panels.
+            </p>
+          </div>
+          <div class="text-center">
+            <a href="#" class="btn btn-primary px-4 mb-4">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Digital Marketing -->
+      <div class="col-lg-4 mb-5" data-aos="flip-left">
+        <div class="card border-0 shadow-sm pb-2">
+          <div class="text-center pt-4">
+            <i class="fas fa-chart-line fa-3x text-primary"></i>
+          </div>
+          <div class="card-body text-center">
+            <h4 class="card-title">Digital Marketing</h4>
+            <p class="card-text">
+              Maximize your online presence with our expert SEO, PPC, and social media marketing strategies.
+            </p>
+          </div>
+          <div class="text-center">
+            <a href="#" class="btn btn-primary px-4 mb-4">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Domain & Hosting -->
+      <div class="col-lg-4 mb-5" data-aos="flip-right">
+        <div class="card border-0 shadow-sm pb-2">
+          <div class="text-center pt-4">
+            <i class="fas fa-server fa-3x text-primary"></i>
+          </div>
+          <div class="card-body text-center">
+            <h4 class="card-title">Domain & Hosting</h4>
+            <p class="card-text">
+              Secure and reliable domain registration & hosting services at competitive prices for all business needs.
+            </p>
+          </div>
+          <div class="text-center">
+            <a href="#" class="btn btn-primary px-4 mb-4">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Core Services End -->
+
+<!-- Include AOS Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // Animation duration in milliseconds
+    once: true, // Animation happens only once
+  });
+</script>
+
+
+
+<!-- our ready Services start -->
+
+
+    <style>
+  /* Improved Software Section Styling */
+.software-section {
+    background-color: #f9fbfd;
+    padding: 60px 0;
+}
+
+.software-box {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #e9ecef;
+    margin: 10px;
+}
+
+.software-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border-color: #007bff;
+}
+
+.software-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid #007bff;
+    padding: 5px;
+    background: white;
+}
+
+.software-name {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #222;
+}
+
+.software-desc {
+    font-size: 1rem;
+    color: #555;
+}
+
+.software-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.software-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+    </style>
+
+<!-- Include AOS Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<!-- Software Section -->
+<section class="software-section">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up" data-aos-duration="1200">
+            <h2 class="fw-bold">Our Ready Software</h2>
+            <p class="text-muted">Powerful and user-friendly software solutions tailored to your business needs.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- HRM Payroll Management Software -->
+            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+                <div class="software-box">
+                    <img src="https://static.thenounproject.com/png/4190214-200.png" class="software-icon" alt="HRM Software">
+                    <div>
+                        <h4 class="software-name">HRM Payroll Management</h4>
+                        <p class="software-desc">Complete HR & Payroll solution with attendance, salary processing, and employee management.</p>
+                        <a href="#" class="software-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garments ERP Software -->
+            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="400">
+                <div class="software-box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjzLSvBWXW3jJPuA-mJF1DO2p2t0p1pJer6g&s" class="software-icon" alt="Garments ERP">
+                    <div>
+                        <h4 class="software-name">Garments ERP Software</h4>
+                        <p class="software-desc">Manage merchandising, production, inventory, and payroll efficiently with our ERP solution.</p>
+                        <a href="#" class="software-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hospital Management System -->
+            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="600">
+                <div class="software-box">
+                    <img src="https://media.istockphoto.com/id/1300273646/vector/hospital-icon-design-vector-illustration-template.jpg?s=612x612&w=0&k=20&c=D3tyyURUrIL5b2jpNCEMcQNz57oF5mSlkLzPEfYagSo=" class="software-icon" alt="Hospital Management">
+                    <div>
+                        <h4 class="software-name">Hospital Management System</h4>
+                        <p class="software-desc">Advanced hospital, clinic, and diagnostic center management for seamless operations.</p>
+                        <a href="#" class="software-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Retail POS Software -->
+            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="800">
+                <div class="software-box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO4MKuhKuzxGPFUlkXYJjiBKhejsvZLOTPzQ&s" class="software-icon" alt="Retail POS">
+                    <div>
+                        <h4 class="software-name">Retail POS Software</h4>
+                        <p class="software-desc">Effortlessly manage sales, purchases, and inventory with our user-friendly POS software.</p>
+                        <a href="#" class="software-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- School Management Software -->
+            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="1000">
+                <div class="software-box">
+                    <img src="https://www.shutterstock.com/image-vector/flat-school-building-icon-symbol-260nw-1425347555.jpg" class="software-icon" alt="School Management">
+                    <div>
+                        <h4 class="software-name">School Management System</h4>
+                        <p class="software-desc">Manage students, teachers, attendance, exams, and payroll with ease.</p>
+                        <a href="#" class="software-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business ERP Software -->
+            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="1200">
+                <div class="software-box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9OpqU2s8HznmvxJVAfQbepX4mo-M3cGx2ZQ&s" class="software-icon" alt="Business ERP">
+                    <div>
+                        <h4 class="software-name">Business ERP Software</h4>
+                        <p class="software-desc">Automate core business processes including production, inventory, and financial management.</p>
+                        <a href="#" class="software-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Initialize AOS -->
+<script>
+    AOS.init();
+</script>
+
+<!-- Bootstrap Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+   
+
+
+<!-- our ready Services end-->
+
+  <!-- Book A Seat Section Start -->
+<div class="container-fluid py-5 book-seat-container">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Left Content -->
+            <div class="col-lg-7 mb-5 mb-lg-0">
+                <p class="section-title">
+                    <span class="pr-2">Reserve Your Spot</span>
+                </p>
+                <h1 class="mb-4">Get Started with Indiana Infotech's Digital Solutions</h1>
+                <p>
+                    Looking for **top-notch software solutions**? Whether you need **custom software, website development, mobile apps, or digital marketing**, our experts are here to help. 
+                    Book a consultation with us today and take your business to the next level.
+                </p>
+                <ul class="list-unstyled">
+                    <li class="py-2">
+                        <i class="fa fa-check text-success mr-3"></i> Expert Software & Web Development Services
+                    </li>
+                    <li class="py-2">
+                        <i class="fa fa-check text-success mr-3"></i> Tailored Solutions for Your Business Needs
+                    </li>
+                    <li class="py-2">
+                        <i class="fa fa-check text-success mr-3"></i> Quick Support & Customer Satisfaction Guaranteed
+                    </li>
+                </ul>
+                <a href="#book-seat-form" class="btn btn-primary mt-3">Book A Free Consultation</a>
+            </div>
+
+            <!-- Right Side Booking Form -->
+            <div class="col-lg-5">
+                <div class="card shadow-lg p-4 book-seat-form">
+                    <h3 class="text-center mb-4">Book A Seat</h3>
+                    <form action="submit_form.php" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Select Service</label>
+                            <select id="service" name="service" class="form-control" required>
+                                <option value="" disabled selected>Choose a service</option>
+                                <option value="Website Development">Website Development</option>
+                                <option value="Mobile App Development">Mobile App Development</option>
+                                <option value="Software Development">Software Development</option>
+                                <option value="Digital Marketing">Digital Marketing</option>
+                                <option value="Business ERP Solutions">Business ERP Solutions</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Book Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Book A Seat Section End -->
+
 
     <!-- Team Start -->
     <div class="container-fluid pt-5">
       <div class="container">
         <div class="text-center pb-2">
           <p class="section-title px-5">
-            <span class="px-2">Our Teachers</span>
+            <span class="px-2">Our Team<span>
           </p>
-          <h1 class="mb-4">Meet Our Teachers</h1>
+          <h1 class="mb-4">Meet Our Developer </h>
         </div>
         <div class="row">
           <div class="col-md-6 col-lg-3 text-center team mb-5">
@@ -441,7 +665,7 @@
               </div>
             </div>
             <h4>Julia Smith</h4>
-            <i>Music Teacher</i>
+            <i>Fontend Developer </i>
           </div>
           <div class="col-md-6 col-lg-3 text-center team mb-5">
             <div
@@ -473,7 +697,7 @@
               </div>
             </div>
             <h4>Jhon Doe</h4>
-            <i>Language Teacher</i>
+            <i>Backend developer</i>
           </div>
           <div class="col-md-6 col-lg-3 text-center team mb-5">
             <div
@@ -505,7 +729,7 @@
               </div>
             </div>
             <h4>Mollie Ross</h4>
-            <i>Dance Teacher</i>
+            <i>DevOps Engineer</i>
           </div>
           <div class="col-md-6 col-lg-3 text-center team mb-5">
             <div
@@ -537,7 +761,7 @@
               </div>
             </div>
             <h4>Donald John</h4>
-            <i>Art Teacher</i>
+            <i>Ai Engineer </i>
           </div>
         </div>
       </div>
