@@ -3,7 +3,7 @@
 
 
 @section('content')
-    <!-- Header Start -->
+
 <!-- Header Start -->
 <div class="container-fluid bg-primary px-0 px-md-5 mb-5"> 
     <div class="row align-items-center px-3">
@@ -40,31 +40,6 @@
         once: true,  // Runs only once when scrolling
     });
 </script>
-
-<!-- Custom CSS for Extra Effects -->
-<style>
-    /* Button Hover Effect */
-    .btn-secondary {
-        transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    .btn-secondary:hover {
-        transform: scale(1.1);
-        background-color: #ffcc00;
-        color: #000;
-    }
-
-    /* Image Floating Effect */
-    .animated-image {
-        animation: float 4s infinite ease-in-out;
-    }
-
-    @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0px); }
-    }
-</style>
 
     <!-- Header End -->
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SubmenuController;
+use App\Http\Controllers\HomePageController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -82,6 +83,12 @@ Route::post('/menus/delete/{id}', [MenuController::class, 'destroy'])->name('men
 Route::post('/submenus/store', [SubmenuController::class, 'store'])->name('submenus.store');
 Route::post('/submenus/update/{id}', [SubmenuController::class, 'update'])->name('submenus.update');
 Route::post('/submenus/delete/{id}', [SubmenuController::class, 'destroy'])->name('submenus.destroy');
+
+Route::get('panel/pages/Home_page', [HomePageController::class, 'Home_page'])->name('Home_page');
+
+
+
+
 
 
 

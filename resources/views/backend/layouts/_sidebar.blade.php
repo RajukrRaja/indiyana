@@ -49,6 +49,13 @@
             </a>
           </li>
           <li>
+            <a href="{{url('panel/pages/Home_page')}}">
+              <i class="bi bi-circle"></i><span>Home</span>
+            </a>
+          </li>
+
+
+          <li>
             <a href="{{url('panel/pages/About_page')}}">
               <i class="bi bi-circle"></i><span>About page</span>
             </a>
