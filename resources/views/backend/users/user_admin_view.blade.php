@@ -163,14 +163,17 @@
                                         </button>
 
                                         <!-- Delete Button -->
-                                        <form action="{{ url('panel/users/delete', $user->id) }}" method="POST" style="display:inline-block;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"
-                                                onclick="return confirm('Are you sure you want to delete this user?');">
-                                                <i class="bi bi-trash"></i> 
-                                            </button>
-                                        </form>
+                                        <!-- Delete Button -->
+<button type="button" class="btn btn-danger btn-sm delete-user-btn" data-user-id="{{ $user->id }}">
+    <i class="bi bi-trash"></i>
+</button>
+
+<!-- Delete Form (Hidden) -->
+<form id="delete-form-{{ $user->id }}" action="{{ url('panel/users/delete', $user->id) }}" method="POST" style="display: none;">
+    @csrf
+    @method('DELETE')
+</form>
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -270,6 +273,12 @@
  
 
 
+<!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
   
         document.getElementById("searchInput").addEventListener("input", function () {
@@ -285,5 +294,31 @@
             });
         });
     </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".delete-user-btn").forEach(button => {
+        button.addEventListener("click", function() {
+            let userId = this.getAttribute("data-user-id");
+            let form = document.getElementById("delete-form-" + userId);
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+});
+</script>
+
 
 @endsection

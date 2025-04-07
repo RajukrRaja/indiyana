@@ -29,40 +29,266 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Updated: Apr 20 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <!-- Custom Design Enhancements -->
+  <style>
+    /* Dynamic FraudXpert AI Background */
+    body {
+      background: rgba(10, 10, 40, 0.95);
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fraudxpert-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, rgba(0, 204, 255, 0.2), rgba(204, 0, 102, 0.2));
+      animation: bgShift 8s infinite ease-in-out;
+    }
+
+    @keyframes bgShift {
+      0%, 100% { transform: scale(1); opacity: 0.85; }
+      50% { transform: scale(1.05); opacity: 1; }
+    }
+
+    /* Enhanced Hex Grid */
+    .hex-grid {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: repeating-conic-gradient(#00ccff 0deg 10deg, transparent 10deg 20deg);
+      opacity: 0.2;
+      animation: hexSpin 25s infinite linear;
+    }
+
+    @keyframes hexSpin {
+      0% { transform: rotate(0deg); background-position: 0 0; }
+      100% { transform: rotate(360deg); background-position: 40px 40px; }
+    }
+
+    /* Dynamic Scan Beams */
+    .scan-beam {
+      position: absolute;
+      width: 120%;
+      height: 6px;
+      background: linear-gradient(90deg, transparent, #cc0066, transparent);
+      box-shadow: 0 0 15px #cc0066;
+      animation: beamSweep 4s infinite ease-in-out;
+    }
+
+    .beam-1 { top: 25%; animation-delay: 0s; }
+    .beam-2 { top: 50%; animation-delay: 1s; }
+    .beam-3 { top: 75%; animation-delay: 2s; }
+
+    @keyframes beamSweep {
+      0% { transform: translateX(-100%); opacity: 0; }
+      50% { transform: translateX(0); opacity: 1; }
+      100% { transform: translateX(100%); opacity: 0; }
+    }
+
+    /* Data Streams */
+    .data-stream {
+      position: absolute;
+      width: 3px;
+      height: 40%;
+      background: #00ccff;
+      box-shadow: 0 0 20px #00ccff;
+      animation: streamFlow 3s infinite linear;
+    }
+
+    .stream-1 { left: 15%; top: 10%; animation-delay: 0s; }
+    .stream-2 { left: 35%; top: 20%; animation-delay: 0.5s; }
+    .stream-3 { left: 65%; top: 15%; animation-delay: 1s; }
+
+    @keyframes streamFlow {
+      0% { transform: translateY(-100%); opacity: 0; }
+      50% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100%); opacity: 0; }
+    }
+
+    /* Pulse Rings */
+    .pulse-ring {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border: 2px solid #cc0066;
+      border-radius: 50%;
+      animation: ringExpand 6s infinite ease-out;
+    }
+
+    .ring-1 { top: 10%; left: 10%; animation-delay: 0s; }
+    .ring-2 { bottom: 10%; right: 10%; animation-delay: 2s; }
+
+    @keyframes ringExpand {
+      0% { transform: scale(0); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    /* Card Design */
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(0, 204, 255, 0.3);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    /* Enhanced Title */
+    .card-title {
+      color: #00ccff;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 0 0 15px rgba(0, 204, 255, 0.8);
+      animation: titleGlow 2s infinite alternate;
+    }
+
+    @keyframes titleGlow {
+      0% { text-shadow: 0 0 15px rgba(0, 204, 255, 0.8); }
+      100% { text-shadow: 0 0 25px rgba(0, 204, 255, 1); }
+    }
+
+    /* Logo Animation */
+    .logo span {
+      color: #00ccff;
+      font-weight: 600;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+
+    /* Enhanced Input Fields */
+    .form-control {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(0, 204, 255, 0.4);
+      border-radius: 12px;
+      color: #fff;
+      padding: 10px 15px;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #cc0066;
+      box-shadow: 0 0 12px rgba(204, 0, 102, 0.5);
+      color: #fff;
+    }
+
+    .form-label {
+      color: #00ccff;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus + .form-label,
+    .form-control:not(:placeholder-shown) + .form-label {
+      color: #cc0066;
+    }
+
+    /* Password Toggle with Perfect Monkey Icon */
+    .password-wrapper {
+      position: relative;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 15px;
+      top: 65%; /* Adjusted for better alignment with input */
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 20px;
+      color: #00ccff;
+      transition: color 0.3s ease;
+    }
+
+    .password-toggle:hover {
+      color: #cc0066;
+    }
+
+    /* Button Design */
+    .btn-primary {
+      background: linear-gradient(90deg, #00ccff, #cc0066);
+      border: none;
+      border-radius: 25px;
+      padding: 12px 0;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #cc0066, #00ccff);
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(204, 0, 102, 0.5);
+    }
+
+    /* Text Styling */
+    .small, .form-check-label {
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Back-to-Top Button */
+    .back-to-top {
+      background: rgba(0, 204, 255, 0.2);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .back-to-top:hover {
+      background: rgba(0, 204, 255, 0.5);
+      transform: translateY(-5px);
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Enhanced FraudXpert AI Background -->
+  <div class="fraudxpert-bg">
+    <div class="hex-grid"></div>
+    <div class="scan-beam beam-1"></div>
+    <div class="scan-beam beam-2"></div>
+    <div class="scan-beam beam-3"></div>
+    <div class="data-stream stream-1"></div>
+    <div class="data-stream stream-2"></div>
+    <div class="data-stream stream-3"></div>
+    <div class="pulse-ring ring-1"></div>
+    <div class="pulse-ring ring-2"></div>
+  </div>
 
   <main>
     <div class="container">
-
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
-          
                   <span class="d-none d-lg-block">Register</span>
                 </a>
               </div><!-- End Logo -->
 
               <div class="card mb-3">
-
                 <div class="card-body">
-
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
                     <p class="text-center small">Enter your personal details to create account</p>
-
                   </div>
 
                   @include('layouts._message')
@@ -85,10 +311,11 @@
                       <div class="valid-feedback">Looks good!</div>
                     </div>
                   
-                    <!-- Password Field -->
-                    <div class="col-12">
+                    <!-- Password Field with Perfect Monkey Icon -->
+                    <div class="col-12 password-wrapper">
                       <label for="yourPassword" class="form-label">Password</label>
                       <input type="password" name="password" class="form-control" id="yourPassword" minlength="8" required>
+                      <span class="password-toggle bi bi-emoji-smile" onclick="togglePassword()"></span>
                       <div class="invalid-feedback">Please enter your password (minimum 8 characters)!</div>
                       <div class="valid-feedback">Looks good!</div>
                     </div>
@@ -130,17 +357,28 @@
                         }, false);
                       });
                     })();
+
+                    // Show/Hide Password with Perfect Monkey Icon
+                    function togglePassword() {
+                      const passwordInput = document.getElementById('yourPassword');
+                      const toggleIcon = document.querySelector('.password-toggle');
+                      if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        toggleIcon.classList.remove('bi-emoji-smile');
+                        toggleIcon.classList.add('bi-emoji-wink');
+                      } else {
+                        passwordInput.type = 'password';
+                        toggleIcon.classList.remove('bi-emoji-wink');
+                        toggleIcon.classList.add('bi-emoji-smile');
+                      }
+                    }
                   </script>
-                  
-
-          
-
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
       </section>
-
     </div>
   </main><!-- End #main -->
 

@@ -17,6 +17,19 @@ class UserController extends Controller
         return view('backend.users.user_admin_view', $data);
     }
 
+
+    public function destroy($id)
+    {
+        $user = User::find($id);
+
+        if (!$user) {
+            return redirect()->back()->with('error', 'User not found.');
+        }
+
+        $user->delete();
+
+        return redirect()->back()->with('success', 'User deleted successfully.');
+    }
   
 
     
@@ -77,6 +90,38 @@ class UserController extends Controller
         } catch (\Exception $e) {
             return redirect('/panel/user_admin_view')->with('error', 'Failed to update user: ' . $e->getMessage());
         }
+    }
+
+
+    public function updateUser(Request $request)
+    {
+        // Validate the request
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required|exists:users,id',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $request->user_id,
+            'role' => 'required|in:0,1',
+        ]);
+
+        // If validation fails, return with errors
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Find user by ID
+        $user = User::find($request->user_id);
+        if (!$user) {
+            return redirect()->back()->with('error', 'User not found.');
+        }
+
+        // Update user details
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role = $request->role;
+        $user->save();
+
+        // Redirect back with success message
+        return redirect()->back()->with('success', 'User updated successfully.');
     }
     
     

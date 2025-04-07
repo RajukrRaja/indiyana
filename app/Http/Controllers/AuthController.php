@@ -19,6 +19,15 @@ class AuthController extends Controller
         return view('auth.login'); // Or your desired response
     }
 
+    public function login_account()
+    {
+        return view('auth.login_account'); // Adjust the view path if necessary
+    }
+    public function Register_account()
+    {
+        return view('auth.Register_account'); // Adjust the view path if necessary
+    }
+
     public function register()
     {
         return view('auth.register'); // Or your desired response

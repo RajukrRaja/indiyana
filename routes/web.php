@@ -9,6 +9,13 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SubmenuController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\MobileVerificationController;
+
+
+use App\Http\Controllers\PaymentController;
+
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -42,11 +49,23 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['adminuser'])->group(function () {
     Route::get('panel/dashboard', [DashboardContoller::class, 'dashboard'])->name('dashboard');
+    Route::get('panel/dashboard/make_payment', [TransactionController::class, 'make_payment'])
+    ->name('make_payment');
+    Route::get('panel/dashboard/Register_account', [AuthController::class, 'Register_account'])
+    ->name('Register_account');
+
+    Route::get('panel/dashboard/payments/transactions', [PaymentController::class, 'transactions'])
+    ->name('transactions');
+
+
+
+
     
 Route::get('/panel/user_admin_view', [UserController::class, 'user_admin_view'])->name('user_admin_view');
 Route::post('panel/users/add_user_admin', [UserController::class, 'add_user_admin'])->name('add_user_admin');
 Route::put('panel/users/edit_user_admin', [UserController::class, 'edit_user_admin'])->name('edit_user_admin');
-Route::put('panel/users/edit_user_admin', [UserController::class, 'edit_user_admin'])->name('edit_user_admin');
+Route::delete('/panel/users/delete/{id}', [UserController::class, 'destroy'])->name('users.delete');
+Route::put('/panel/users/edit_user_admin', [UserController::class, 'updateUser'])->name('users.update');
 
 
 
@@ -62,8 +81,27 @@ Route::get('panel/pages/Service_page', [PageController::class, 'Service_page'])-
 
 
 
+Route::get('/verify-mobile', [MobileVerificationController::class, 'showVerificationForm'])->name('mobile.verify');
+
+Route::post('/send-otp', [MobileVerificationController::class, 'sendOtp'])->name('mobile.send.otp');
+Route::post('/verify-otp', [MobileVerificationController::class, 'verifyOtp'])->name('mobile.verify.otp');
 
 });
+
+
+
+
+
+Route::get('/dashboard', function () { return view('backend.dashboard'); })->name('dashboard');
+Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
+Route::post('/payment/process', [PaymentController::class, 'processPayment'])->name('payment.process');
+Route::post('/payment/confirm', [PaymentController::class, 'confirmPayment'])->name('payment.confirm');
+
+Route::get('viewSecurity', [PaymentController::class, 'viewSecurity'])->name('viewSecurity');
+
+
+
+Route::post('/verify/security', [PaymentController::class, 'verifySecurity'])->name('verify.security');
 
 Route::get('about_page_view', [AboutUsController::class, 'about_page_view'])->name('about_page_view');
 Route::get('Navbar_page', [PageController::class, 'Navbar_page'])->name('Navbar_page');
@@ -72,6 +110,8 @@ Route::get('add_menu_view', [MenuController::class, 'add_menu_view'])->name('add
 Route::post('add_menu', [PageController::class, 'add_menu'])->name('add_menu');
 Route::get('Contact_page', [PageController::class, 'Contact_page'])->name('Contact_page');
 Route::get('Service_page', [PageController::class, 'Service_page'])->name('Service_page');
+
+Route::get('/locations', [PaymentController::class, 'getLocations']);
 
 
 
